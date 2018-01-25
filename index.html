@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Make my scale</title>
+	
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bevan">
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pontano+Sans">
+	<link type="text/css" rel="stylesheet" href="css/reset.css">
+	<link type="text/css" rel="stylesheet" href="css/make-my-scale.css">
+	<link type="text/css" rel="stylesheet" href="css/fontawesome-all.css">
+</head>
+<body>
+
+	<!-- Language selection -->
+	<div id="mms-lang-selection" class="mms-fluid-box">
+		<ul class="mms-button-group">
+			<li id="lang-en" class="mms-button" onclick="MMS.translate('en')">EN</li>
+			<li id="lang-es" class="mms-button" onclick="MMS.translate('es')">ES</li>
+		</ul>
+	</div>
+	
+	<!-- Title -->
+	<h1 class="mms-title-text-1"><span lang="en">Create my</span><span lang="es">Crea mi</span></h1>
+	<h1 class="mms-title-text-2"><span lang="en">SCALE</span><span lang="es">ESCALA</span></h1>
+	
+	<div class="mms-fluid-box">
+		
+		<!-- Fretboard -->
+		<div id="mms-canvas-wrapper" class="mms-inner-box shadow">
+			<canvas id="mms-canvas" width="900px" height="150px"></canvas>
+		</div>
+		
+		
+		<!-- Notes -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Notes</span><span lang="es">Notas</span></h3>
+			<ul id="mms-notes" class="mms-button-group">
+				<li class="mms-button" onclick="MMS.selectNote(0)">A</li>
+				<li class="mms-button" onclick="MMS.selectNote(1)">A#</li>
+				<li class="mms-button" onclick="MMS.selectNote(2)">B</li>
+				<li class="mms-button" onclick="MMS.selectNote(3)">C</li>
+				<li class="mms-button" onclick="MMS.selectNote(4)">C#</li>
+				<li class="mms-button" onclick="MMS.selectNote(5)">D</li>
+				<li class="mms-button" onclick="MMS.selectNote(6)">D#</li>
+				<li class="mms-button" onclick="MMS.selectNote(7)">E</li>
+				<li class="mms-button" onclick="MMS.selectNote(8)">F</li>
+				<li class="mms-button" onclick="MMS.selectNote(9)">F#</li>
+				<li class="mms-button" onclick="MMS.selectNote(10)">G</li>
+				<li class="mms-button" onclick="MMS.selectNote(11)">G#</li>
+			</ul>
+		</div>
+		
+		<!-- Console -->
+		<div class="mms-inner-box">
+			<p id="mms-console">...</p>
+		</div>
+		
+		<!-- Actions -->
+		<div class="mms-inner-box">
+			<ul id="mms-actions" class="mms-button-group">
+				<!-- Show/Hide note names -->
+				<li id="mms-note-names" class="mms-button" onclick="MMS.toggleNoteNames()"><span class="fas fa-music"></span></li>
+				<!-- Reset -->
+				<li id="mms-reset" class="mms-button" onclick="MMS.clear()"><span class="fas fa-trash-alt"></span></li>
+			</ul>
+		</div>
+		
+	</div>
+	
+	<!-- Scales -->
+	<div class="mms-fluid-box">
+		
+		<!-- Natural scales -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Natural Scales</span><span lang="es">Escalas Naturales</span></h3>
+			<ul class="mms-button-group">
+				<li id="majorScale" class="mms-button" onclick="MMS.selectScale('major')"><span lang="en">Major</span><span lang="es">Mayor</span></li>
+				<li id="minorScale" class="mms-button" onclick="MMS.selectScale('minor')"><span lang="en">Natural Minor</span><span lang="es">Menor Natural</span></li>
+				<li id="harmonicMinorScale" class="mms-button" onclick="MMS.selectScale('harmonicMinor')"><span lang="en">Harmonic Minor</span><span lang="es">Menor Armónica</span></li>
+				<li id="melodicMinorScale" class="mms-button" onclick="MMS.selectScale('melodicMinor')"><span lang="en">Melodic Minor</span><span lang="es">Menor Melódica</span></li>
+			</ul>
+		</div>
+		
+		<!-- Modes -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Greek Modes</span><span lang="es">Modos Griegos</span></h3>
+			<ul class="mms-button-group">
+				<li id="ionianScale" class="mms-button" onclick="MMS.selectScale('ionian')"><span lang="en">Ionian</span><span lang="es">Jónico</span></li>
+				<li id="dorianScale" class="mms-button" onclick="MMS.selectScale('dorian')"><span lang="en">Dorian</span><span lang="es">Dórico</span></li>
+				<li id="phrygianScale" class="mms-button" onclick="MMS.selectScale('phrygian')"><span lang="en">Phrygian</span><span lang="es">Frigio</span></li>
+				<li id="lydianScale" class="mms-button" onclick="MMS.selectScale('lydian')"><span lang="en">Lydian</span><span lang="es">Lidio</span></li>
+				<li id="minorLydianScale" class="mms-button" onclick="MMS.selectScale('minorLydian')"><span lang="en">Lydian Minor</span><span lang="es">Lidio Menor</span></li>
+				<li id="diminishedLydianScale" class="mms-button" onclick="MMS.selectScale('diminishedLydian')"><span lang="en">Dimished Lydian</span><span lang="es">Lidio Disminuido</span></li>
+				<li id="augmentedLydianScale" class="mms-button" onclick="MMS.selectScale('augmentedLydian')"><span lang="en">Augmented Lydian</span><span lang="es">Lidio Aumentado</span></li>
+				<li id="mixolydianScale" class="mms-button" onclick="MMS.selectScale('mixolydian')"><span lang="en">Mixolydian</span><span lang="es">Mixolidio</span></li>
+				<li id="aeolianScale" class="mms-button" onclick="MMS.selectScale('aeolian')"><span lang="en">Aeolian</span><span lang="es">Eólico</span></li>
+				<li id="locrianScale" class="mms-button" onclick="MMS.selectScale('locrian')"><span lang="en">Locrian</span><span lang="es">Locrio</span></li>
+				<li id="majorLocrianScale" class="mms-button" onclick="MMS.selectScale('majorLocrian')"><span lang="en">Locrian Major</span><span lang="es">Locrio Mayor</span></li>
+				<li id="superLocrianScale" class="mms-button" onclick="MMS.selectScale('superLocrian')"><span lang="en">Super Locrian</span><span lang="es">Super Locrio</span></li>
+			</ul>
+		</div>
+		
+		<!-- Symmetric scales -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Symmetric Scales</span><span lang="es">Escalas Simétricas</span></h3>
+			<ul class="mms-button-group">
+				<li id="chromaticScale" class="mms-button" onclick="MMS.selectScale('chromatic')"><span lang="en">Chromatic</span><span lang="es">Cromática</span></li>
+				<li id="wholeToneScale" class="mms-button" onclick="MMS.selectScale('wholeTone')"><span lang="en">Whole Tone</span><span lang="es">Tonos Completos</span></li>
+				<li id="diminishedWholeHalfScale" class="mms-button" onclick="MMS.selectScale('diminishedWholeHalf')"><span lang="en">Diminished Whole/Half</span><span lang="es">Disminuida Tono/Semitono</span></li>
+				<li id="diminishedHalfWholeScale" class="mms-button" onclick="MMS.selectScale('diminishedHalfWhole')"><span lang="en">Diminished Half/Whole</span><span lang="es">Dismunuida Semitono/Tono</span></li>
+				<li id="augmentedScale" class="mms-button" onclick="MMS.selectScale('augmented')"><span lang="en">Augmented</span><span lang="es">Aumentada</span></li>
+				<li id="sixToneScale" class="mms-button" onclick="MMS.selectScale('sixTone')">Seis Tonos</li>
+			</ul>
+		</div>
+		
+		<!-- Blues scales -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Blues</span><span lang="es">Blues</span></h3>
+			<ul class="mms-button-group">
+				<li id="minorPentatonicScale" class="mms-button" onclick="MMS.selectScale('minorPentatonic')"><span lang="en">Minor Pentatonic</span><span lang="es">Pentatónica Menor</span></li>
+				<li id="minorBluesPentatonicScale" class="mms-button" onclick="MMS.selectScale('minorBluesPentatonic')"><span lang="en">Minor Blues Pentatonic</span><span lang="es">Pentatónica Menor de Blues</span></li>
+				<li id="majorPentatonicScale" class="mms-button" onclick="MMS.selectScale('majorPentatonic')"><span lang="en">Major Pentatonic</span><span lang="es">Pentatónica Mayor</span></li>
+				<li id="majorBluesPentatonicScale" class="mms-button" onclick="MMS.selectScale('majorBluesPentatonic')"><span lang="en">Major Blues Pentatonic</span><span lang="es">Pentatónica Mayor de Blues</span></li>
+				<li id="dominantPentatonicScale" class="mms-button" onclick="MMS.selectScale('dominantPentatonic')"><span lang="en">Dominant Pentatonic</span><span lang="es">Pentatónica Dominante</span></li>
+			</ul>
+		</div>
+		
+		<!-- Jazz scales -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Jazz</span><span lang="es">Jazz</span></h3>
+			<ul class="mms-button-group">
+				<li id="majorBebopScale" class="mms-button" onclick="MMS.selectScale('majorBebop')"><span lang="en">Major Bebop</span><span lang="es">Bebop Mayor</span></li>
+				<li id="minorBebopScale" class="mms-button" onclick="MMS.selectScale('minorBebop')"><span lang="en">Minor Bebop</span><span lang="es">Bebop Menor</span></li>
+				<li id="dominantBebopScale" class="mms-button" onclick="MMS.selectScale('dominantBebop')"><span lang="en">Dominant Bebop</span><span lang="es">Bebop Dominante</span></li>
+				<li id="halfDiminishedBebopScale" class="mms-button" onclick="MMS.selectScale('halfDiminishedBebop')"><span lang="en">Half Diminished Bebop</span><span lang="es">Bebop Semi Disminuida</span></li>
+			</ul>
+		</div>
+		
+		<!-- Exotic scales -->
+		<div class="mms-inner-box">
+			<h3><span lang="en">Exotic Scales</span><span lang="es">Escalas Exóticas</span></h3>
+			<ul class="mms-button-group">
+				<li id="alteredScale" class="mms-button" onclick="MMS.selectScale('altered')"><span lang="en">Altered</span><span lang="es">Alterada</span></li>
+				<li id="algerianScale" class="mms-button" onclick="MMS.selectScale('algerian')"><span lang="en">Algerian</span><span lang="es">Argelina</span></li>
+				<li id="arabianAScale" class="mms-button" onclick="MMS.selectScale('arabianA')"><span lang="en">Arabian A</span><span lang="es">Árabe A</span></li>
+				<li id="arabianBScale" class="mms-button" onclick="MMS.selectScale('arabianB')"><span lang="en">Arabian B</span><span lang="es">Árabe B</span></li>
+				<li id="balineseScale" class="mms-button" onclick="MMS.selectScale('balinese')"><span lang="en">Balinese</span><span lang="es">Balinesa</span></li>
+				<li id="byzantineScale" class="mms-button" onclick="MMS.selectScale('byzantine')"><span lang="en">Byzantine</span><span lang="es">Bizantina</span></li>
+				<li id="chineseScale" class="mms-button" onclick="MMS.selectScale('chinese')"><span lang="en">Chinese</span><span lang="es">China</span></li>
+				<li id="egyptianScale" class="mms-button" onclick="MMS.selectScale('egyptian')"><span lang="en">Egyptian</span><span lang="es">Egipcia</span></li>
+				<li id="enigmaticScale" class="mms-button" onclick="MMS.selectScale('enigmatic')"><span lang="en">Enigmatic</span><span lang="es">Enigmática</span></li>
+				<li id="hinduScale" class="mms-button" onclick="MMS.selectScale('hindu')"><span lang="en">Hindu</span><span lang="es">Hindú</span></li>
+				<li id="majorHungarianScale" class="mms-button" onclick="MMS.selectScale('majorHungarian')"><span lang="en">Major Hungarian</span><span lang="es">Húngara Mayor</span></li>
+				<li id="minorHungarianScale" class="mms-button" onclick="MMS.selectScale('minorHungarian')"><span lang="en">Minor Hungarian</span><span lang="es">Húngara Menor</span></li>
+				<li id="japaneseScale" class="mms-button" onclick="MMS.selectScale('japanese')"><span lang="en">Japanese</span><span lang="es">Japonesa</span></li>
+				<li id="javaneeseScale" class="mms-button" onclick="MMS.selectScale('javaneese')"><span lang="en">Javaneese</span><span lang="es">Javanesa</span></li>
+				<li id="kumoiScale" class="mms-button" onclick="MMS.selectScale('kumoi')"><span lang="en">Kumoi</span><span lang="es">Kumoi</span></li>
+				<li id="mongolianScale" class="mms-button" onclick="MMS.selectScale('mongolian')"><span lang="en">Mongolian</span><span lang="es">Mongólica</span></li>
+				<li id="neapolitanScale" class="mms-button" onclick="MMS.selectScale('neapolitan')"><span lang="en">Neapolitan</span><span lang="es">Napolitana</span></li>
+				<li id="majorNeapolitanScale" class="mms-button" onclick="MMS.selectScale('majorNeapolitan')"><span lang="en">Major Neapolitan</span><span lang="es">Napolitana Mayor</span></li>
+				<li id="minorNeapolitanScale" class="mms-button" onclick="MMS.selectScale('minorNeapolitan')"><span lang="en">Minor Neapolitan</span><span lang="es">Napolitana Menor</span></li>
+				<li id="pelogScale" class="mms-button" onclick="MMS.selectScale('pelog')"><span lang="en">Pelog</span><span lang="es">Pelog</span></li>
+				<li id="persianScale" class="mms-button" onclick="MMS.selectScale('persian')"><span lang="en">Persian</span><span lang="es">Persa</span></li>
+				<li id="prometheusScale" class="mms-button" onclick="MMS.selectScale('prometheus')"><span lang="en">Prometheus</span><span lang="es">Prometeo</span></li>
+				<li id="minorRoumanianScale" class="mms-button" onclick="MMS.selectScale('minorRoumanian')"><span lang="en">Minor Roumanian</span><span lang="es">Rumana Menor</span></li>
+			</ul>
+		</div>
+			
+	</div>
+	
+	<!-- Footer -->
+	<div class="mms-footer-box">
+		<h3>Marcos G. Valderrey</h3>
+	</div>
+	
+	<script type="text/javascript" src="js/make-my-scale.js"></script>
+</body>
+</html>

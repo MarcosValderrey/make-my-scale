@@ -1,0 +1,176 @@
+/**
+ * make-my-scale.css
+ * 
+ * Styles for Make My Scale script
+ * 
+ * @author Marcos G. Valderrey
+ */
+
+/*
+ * General appearance
+ */
+body {
+	font-family: 'Pontano Sans', Arial, sans-serif;
+	font-family: Arial, sans-serif;
+	background-color: #cccccc;
+	
+	background: url("../img/guitar-1.jpg") no-repeat left top fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+h3 {
+	font-family: 'Bevan', sans-serif;
+	color: #cccccc;
+}
+
+/*
+ * Boxes for layout
+ */
+.mms-fluid-box {
+	display: block;
+	margin: 16px 0px 16px 0px;
+	padding: 8px 16px;
+	border-left: 8px solid #19314a;
+	border-right: 8px solid #19314a;
+	background-color: #204060;
+}
+
+.mms-floating-box {
+	display: inline-block;
+	vertical-align: top;
+	margin: 16px 0px 0px 16px;
+	background-color: #cccccc;
+}
+
+.mms-inner-box {
+	margin: 8px 0px 8px 0px;
+}
+
+.mms-footer-box {
+	display: block;
+	padding: 8px 16px;
+	background-color: #c02942;
+	border-top: 8px solid #ac253b;
+	text-align: center;
+}
+
+/*
+ * Button group
+ */
+.mms-button-group {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*
+ * Button
+ */
+.mms-button {
+	display: inline-block;
+	margin: 4px 16px 4px 0px;
+	padding: 8px 16px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: bold;
+	cursor: pointer;
+	border-bottom: 4px solid #cccccc;
+	color: #cccccc;
+}
+
+.mms-button:hover {
+	color: #ac253b;
+	border-bottom-color: #ac253b;
+	background-color: #cccccc;
+}
+
+.mms-button-selected-1 {
+	color: #c02942;
+	border-bottom-color: #c02942;
+	background-color: #cccccc;
+}
+
+.mms-button-selected-2 {
+	color: #d95b43;
+	border-bottom-color: #d95b43;
+	background-color: #cccccc;
+}
+
+/*
+ * Language selection
+ */
+#mms-lang-selection {
+	display: block;
+	text-align: right;
+	background-color: transparent;
+	border-color: transparent;
+}
+
+/*
+ * Title
+ */
+.mms-title-text-1 {
+	font: 400 32px 'Bevan', sans-serif;
+	text-align: center;
+	color: #c02942;
+}
+
+.mms-title-text-2 {
+	font: 200 72px 'Pontano Sans', Arial, sans-serif;
+	text-align: center;
+	color: #cccccc;
+	background-color: #c02942;
+	border-bottom: 8px solid #ac253b;
+}
+
+/*
+ * Canvas
+ */
+#mms-canvas-wrapper {
+	position: relative;
+	width: 100%;
+	height: 150px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	text-align: center;
+	background-color: #cccccc;
+}
+
+#mms-canvas {
+	
+}
+
+/*
+ * Console
+ */
+#mms-console {
+	padding: 8px;
+	background-color: #cccccc;
+}
+
+/*
+ * Notes
+ */
+#mms-notes li {
+	width: 24px;
+}
+
+/*
+ *
+ */
+#mms-actions li {
+	width: 24px;
+}
+
+/*
+ * Inner shadow
+ */
+.mms-shadow {
+	-moz-box-shadow: inset 0 0 10px #000000;
+	-webkit-box-shadow: inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
+}
